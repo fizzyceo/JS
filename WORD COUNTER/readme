@@ -1,0 +1,96 @@
+Great! Based on your screenshot, I’ll help you rebuild this **character counter web app UI** by listing all the essential materials you’ll need:
+
+---
+
+### ✅ 1. **Fonts**
+
+- **Font Style**: Appears to be a clean, modern **sans-serif** font, likely:
+  - `Inter`, `Poppins`, or `Outfit` (you can use from Google Fonts)
+  - Fallback: `sans-serif`
+
+#### Google Fonts Example:
+
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+---
+
+### 🎨 2. **Colors (Extracted from the UI)**
+
+| Element                      | Color Code             | Description          |
+| ---------------------------- | ---------------------- | -------------------- |
+| Background                   | `#111111` or `#1a1a1a` | Very dark background |
+| Text (Headings)              | `#FFFFFF`              | White                |
+| Text (Subtext / Placeholder) | `#b0b0b0`              | Light grey           |
+| Total Characters Card        | `#e0c7fc`              | Light purple         |
+| Word Count Card              | `#fdbd3f`              | Yellow/Orange        |
+| Sentence Count Card          | `#fca59f`              | Coral/Light Red      |
+| Textarea BG                  | `#2a2a2a`              | Dark grey            |
+| Switch icon (light/dark)     | `#ffffff` on dark bg   |
+
+---
+
+### 📝 3. **Texts/Labels in UI**
+
+| Section                | Text                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| Header                 | **Character Counter**                                                         |
+| Title                  | **Analyze your text in real-time.**                                           |
+| Textarea Placeholder   | _Start typing here... (or paste your text)_                                   |
+| Options                | - Exclude Spaces<br>- Set Character Limit                                     |
+| Cards                  | - Total Characters<br>- Word Count<br>- Sentence Count                        |
+| Reading Time           | _Approx. reading time: 0 minute_                                              |
+| Letter Density Section | _Letter Density_ + _No characters found. Start typing to see letter density._ |
+
+---
+
+### ⚙️ 4. **Layout Overview**
+
+- **Header** with logo/text
+- **Main Title**
+- **Textarea**
+- **Two checkboxes**: exclude spaces / set limit
+- **Info Cards**: 3 cards side by side
+- **Reading time** (bottom right of textarea)
+- **Letter Density section** (bottom)
+
+---
+
+### 🧩 5. **Suggested Folder Structure**
+
+```
+project/
+│
+├── index.html
+├── style.css
+├── script.js
+├── /assets/
+│   └── logo.svg (optional)
+```
+
+---
+
+### 🔌 6. **Basic HTML Head Boilerplate**
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Counter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+```
+
+---
+
+Would you like me to generate the **HTML, CSS, and JS** files for this design with the full layout and functionality?
+
+Let me know, and I’ll build it step by step or provide it all at once.

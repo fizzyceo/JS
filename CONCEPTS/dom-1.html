@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="error"></h1>
+    <input type="text" class="operation" />
+    <button onclick="readInput()">READ VALUES</button>
+  </body>
+
+  <script>
+    let operation = document.querySelector(".operation");
+    let error = document.querySelector(".error");
+    function readInput() {
+      let value = operation.value;
+      console.log(value);
+      if (value === "") {
+        error.textContent = "Please enter a value";
+      } else {
+        error.textContent = "";
+      }
+    }
+  </script>
+</html>

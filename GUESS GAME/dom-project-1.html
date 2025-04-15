@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🎯 Number Guessing Game</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        background-color: #f0f8ff;
+        padding: 50px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      #game {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 16px;
+        width: 60%;
+      }
+
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .message {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+
+      .success {
+        color: green;
+        font-weight: bold;
+      }
+
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+
+      #resetBtn {
+        display: none;
+        background-color: #444;
+        color: white;
+      }
+
+      /* 🎯 STRIKE animation */
+      .strike {
+        animation: shake 0.4s ease-in-out;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-10px);
+        }
+        40% {
+          transform: translateX(10px);
+        }
+        60% {
+          transform: translateX(-10px);
+        }
+        80% {
+          transform: translateX(10px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <h1>🎯 Guess the Number!</h1>
+      <p>I'm thinking of a number between <strong>1 and 100</strong></p>
+
+      <input type="number" id="guessInput" placeholder="Enter your guess" />
+      <button onclick="checkGuess()">Submit</button>
+
+      <div class="message" id="message"></div>
+      <p>Attempts: <span id="attempts">0</span></p>
+
+      <button id="resetBtn" onclick="resetGame()">🔄 Play Again</button>
+      <p></p>
+    </div>
+
+    <script>
+      let secretNumber = Math.floor(Math.random() * 100) + 1;
+      let attempts = 0;
+      let gameOver = false;
+
+      function checkGuess() {
+        if (gameOver) return;
+
+        const input = document.getElementById("guessInput");
+        const message = document.getElementById("message");
+        const attemptsDisplay = document.getElementById("attempts");
+        const gameBox = document.getElementById("game");
+        const guess = Number(input.value);
+
+        if (!guess || guess < 1 || guess > 100) {
+          message.textContent = "🚫 Please enter a number between 1 and 100!";
+          message.className = "message error";
+          return;
+        }
+
+        attempts++;
+        attemptsDisplay.textContent = attempts;
+
+        if (guess === secretNumber) {
+          message.textContent = `🎉 You got it! The number was ${secretNumber}`;
+          message.className = "message success";
+          gameOver = true;
+          document.getElementById("resetBtn").style.display = "inline-block";
+          return;
+        }
+
+        if (attempts >= 5) {
+          message.textContent = `💥 Game Over! You used all 5 attempts. The number was ${secretNumber}. Restarting...`;
+          message.className = "message error";
+          gameOver = true;
+
+          // 💥 Add strike animation
+          gameBox.classList.add("strike");
+
+          // Remove the class after animation completes
+          setTimeout(() => {
+            gameBox.classList.remove("strike");
+            resetGame();
+          }, 10000); // restart after 3 sec
+          return;
+        }
+
+        if (guess < secretNumber) {
+          message.textContent = "📉 low! Try again.";
+        } else {
+          message.textContent = "📈 high! Try again.";
+        }
+
+        message.className = "message";
+        input.value = "";
+        input.focus();
+      }
+
+      function resetGame() {
+        secretNumber = Math.floor(Math.random() * 100) + 1;
+        attempts = 0;
+        gameOver = false;
+
+        document.getElementById("guessInput").value = "";
+        document.getElementById("message").textContent = "";
+        document.getElementById("attempts").textContent = "0";
+        document.getElementById("resetBtn").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

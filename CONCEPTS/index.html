@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .styling_h1 {
+        color: red;
+        font-size: 30px;
+        text-align: center;
+      }
+      .element1 {
+        color: blue;
+        font-size: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>The user inputs 2 values : A ET B</h1>
+    <h2>
+      you compare the 2 values and return the greatest one back as an ALERT
+    </h2> -->
+
+    <!-- <button onclick="addition()">Addition</button>
+    <button onclick="multiplication()">Multiply</button> -->
+
+    <!-- <h1>NAME DIVIDER</h1>
+    <h3>THE USER ENTERS NAME</h3>
+    <h3>THE USER ENTERS HIS DESIRED SEPERATOR</h3>
+    <h3>THE PROGRAM RETURNS THE SPLIT NAME BASED ON THE SEPERATOR</h3> -->
+
+    <!-- <h1 id="add_multiid" accesskey="" class="add_multi">
+      ADDITION OR MULTIPLICATION
+    </h1>
+
+    <h2>USER ENTERS THE WORD : ADDITION OR MULTI</h2>
+    <h2>USER ENTERS FIRST NUMBER</h2>
+    <h2>USER ENTERS SECOND NUMBER</h2>
+    <h2>PROGRAM DISPLAYS THE RESULT</h2>
+    <h2>----------------------------------------------------------------</h2>
+    <h2>THE USER ENTERS THE NUMBER OF ELEMENTS TO ADD</h2>
+    <h2>THE USER IS PROMOTED TO ENTER NUMBERS LIKE: 12,23,45,67</h2>
+    <h2>PROGRAM RETURNS THEIR SUM AS AN ALERT</h2>
+
+    <h2>----------------------------------------------------------------</h2>
+    <h2>THE USER IS PROMPTED TO ENTER A VALUE FROM 1 TO 5</h2>
+    <h2>IF THE VALUE < THE DESIRED ONE : ALERT SHOWING THE TEXT: "HIGHER"</h2>
+    <h2>IF THE VALUE > THE DESIRED ONE : ALERT SHOWING THE TEXT: "LOWER"</h2>
+    <h2>KEEP LOOPING UNTIL THE GUESSED NUMBER IS CORRECT</h2>
+
+    <h2>IF THE NUMBER IS CORRECT SHOW A CONGRATULATION MESSAGE</h2> -->
+    <input type="text" id="task" placeholder="Add the new task here..." />
+    <button onclick="addTask()">ADD</button>
+    <ul id="ul"></ul>
+  </body>
+
+  <script>
+    let input = document.querySelector("#task");
+    function keyp(event) {
+      if (event.key === "Enter") {
+        addTask();
+      }
+    }
+    input.addEventListener("keydown", keyp);
+    function addTask() {
+      let ul_element = document.querySelector("#ul");
+      let li_element = document.createElement("li");
+      let input = document.querySelector("#task");
+      let buttonX = document.createElement("button");
+      buttonX.textContent = "X";
+
+      buttonX.addEventListener("mouseover", function deleteElement() {
+        li_element.remove();
+      });
+      // buttonX.onclick = function removeTask() {
+      //   li_element.remove();
+      // };
+      li_element.textContent = input.value;
+      li_element.appendChild(buttonX);
+      ul_element.appendChild(li_element);
+    }
+
+    // let h1_element = document.querySelector("#add_multiid");
+    // let input = prompt("Enter the text you want to display:");
+    // alert(h1_element.textContent); // .textContent || .innerHTML
+    // h1_element.textContent = input;
+
+    // h1_element.classList.add("styling_h1", "element1");
+    // h1_element.style.color = "red";
+    // h1_element.classList.remove("add_multi");
+    // let age = prompt("Enter your
+    // age: ");
+    // let operation = prompt(
+    //   "Enter the operation you want to perform (addition/multiplication): "
+    // );
+    // let firstNumber = parseInt(prompt("Enter the first number: "));
+    // let secondNumber = parseInt(prompt("Enter the second number: "));
+    // let result = 0;
+    // if (age > 18) {
+    //   alert("you are an adult");
+    // } else {
+    //   alert("You are a minor");
+    // }
+
+    // function addition() {
+    //   let somme = 4 + 7;
+    //   alert(`la somme de 4 et 7 est: ${somme}`);
+    // }
+
+    // function multiplication() {
+    //   let produit = 4 * 7;
+
+    //   alert(produit);
+    // }
+
+    // let name = prompt("give me your name please");
+    // // name = "il,y,wsas,es"
+    // // ["il","y","wsas","es"]
+
+    // let letters = name.split("");
+
+    // alert(letters[2]);
+
+    // if (
+    //   !operation.toLowerCase() === "addition" &&
+    //   !operation.toLowerCase() === "+"
+    // ) {
+    //   alert("Please enter either 'addition' or '+' for addition.");
+    // } else {
+    //   result = firstNumber + secondNumber;
+    // }
+
+    // if (operation === "multiplication") {
+    //   result = firstNumber * secondNumber;
+    // } else {
+    //   alert(
+    //     "Invalid operation. Please enter either 'addition' or 'multiplication'."
+    //   );
+    // }
+    // function getRandomInt(max) {
+    //   return Math.floor(Math.random() * max);
+    // }
+    // let correctNumber = getRandomInt(100);
+
+    // let number = null;
+    // console.log(correctNumber, number);
+
+    // while (correctNumber !== number) {
+    //   number = parseInt(prompt("Enter a number between 1 and 100: "));
+
+    //   if (correctNumber > number) {
+    //     alert("Higher");
+    //   } else if (correctNumber < number) {
+    //     alert("Lower");
+    //   } else {
+    //     alert("Congratulations! You guessed the correct number.");
+    //   }
+    // }
+  </script>
+</html>
